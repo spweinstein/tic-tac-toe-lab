@@ -3,12 +3,16 @@ body {
   /* Use a system font, if none are available use an available sans-sarif */
   font-family: system-ui, sans-serif;
   margin: 0;
+  text-align: center;
 }
 
 .board {
   display: flex;
   flex-wrap: wrap;
   width: 325px;
+  margin: 0 auto;
+  gap: 3px;
+  padding-bottom: 10px;
 }
 
 .sqr {
@@ -17,4 +21,25 @@ body {
   border: 3px solid black;
   font-size: 64px;
   text-align: center;
+  cursor: pointer;
+}
+
+.sqr.X {
+  background-color: lightsteelblue;
+}
+
+.sqr.O {
+  background-color: lightcoral;
+}
+
+#reset {
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
+#reset:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
