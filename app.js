@@ -67,7 +67,7 @@ const updateMessage = () => {
   if (!winner && !tie) {
     messageEl.textContent = `It is ${turn}'s turn`;
   } else if (!winner && tie) {
-    messageEl.textContent = `Tie game! Press reset to try again`;
+    messageEl.textContent = "Tie game! Press reset to try again";
   } else {
     messageEl.textContent = `Congratulations, player ${turn}! Hit reset to play again.`;
   }
@@ -81,12 +81,16 @@ const placePiece = (index) => {
 const checkForWinner = () => {
   for (let i = 0; i < winningCombos.length; i++) {
     const combo = winningCombos[i];
-    if (
-      board[combo[0]] &&
-      board[combo[0]] === board[combo[1]] &&
-      board[combo[0]] === board[combo[2]]
-    ) {
+    const [square1Index, square2Index, square3Index] = winningCombos[i];
+    const [square1Val, square2Val, square3Val] = [
+      board[square1Index],
+      board[square2Index],
+      board[square3Index],
+    ];
+
+    if (square1Val && square1Val === square2Val && square1Val === square3Val) {
       winner = true;
+      break;
     }
   }
 };
@@ -106,7 +110,7 @@ const switchPlayerTurn = () => {
 const handleClick = (event) => {
   const squareIndex = event.target.id;
   const squareValue = board[squareIndex];
-  if (squareValue) {
+  if (squareValue || winner) {
     return;
   }
   placePiece(squareIndex);

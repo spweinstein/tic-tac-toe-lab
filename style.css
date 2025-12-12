@@ -22,6 +22,7 @@ body {
   font-size: 64px;
   text-align: center;
   cursor: pointer;
+  background-color: white;
 }
 
 .sqr.X {
@@ -37,9 +38,10 @@ body {
   background-color: white;
   border: 2px solid rgba(0, 0, 0, 0.2);
   padding: 5px;
+  background-color: rgb(252, 252, 190);
 }
 
 #reset:hover {
-  background-color: lightgrey;
+  background-color: rgb(250, 250, 137);
   cursor: pointer;
 }
